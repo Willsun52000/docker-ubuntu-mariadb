@@ -14,6 +14,6 @@ service rsyslog start
 service mysql start
 service cron start
 
-openssl dhparam -dsaparam -out /etc/nginx/dhparam.pem 4096
+openssl dhparam -dsaparam -out /etc/ssl/dhparam.pem 4096
 
 tail -f /dev/null
