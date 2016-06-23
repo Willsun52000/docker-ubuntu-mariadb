@@ -20,6 +20,7 @@ RUN echo "deb [arch=amd64,i386] http://mirrors.bestthaihost.com/mariadb/repo/10.
 RUN apt-get autoclean
 
 COPY ./files /
+RUN chmod +x /root/run-server.sh
 
 # Config mariaDB and php-fpm
 RUN chmod 0664 /etc/mysql/conf.d/mariadb.cnf
