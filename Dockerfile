@@ -19,6 +19,9 @@ RUN echo "deb [arch=amd64,i386] http://mirrors.bestthaihost.com/mariadb/repo/10.
 # Clean file
 RUN apt-get autoclean
 
+# Listen remote client
+RUN sed -i "s|127.0.0.1|0.0.0.0|" /etc/mysql/my.cnf
+
 COPY ./files /
 RUN chmod +x /root/run-server.sh
 
@@ -26,8 +29,6 @@ RUN chmod +x /root/run-server.sh
 RUN chmod 0664 /etc/mysql/conf.d/mariadb.cnf
 
 EXPOSE 22 3306
-
-WORKDIR /srv
 
 VOLUME ["/var/lib/mysql"]
 
