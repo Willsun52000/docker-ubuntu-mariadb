@@ -8,7 +8,7 @@ RUN	apt-get update && apt-get dist-upgrade -y
 RUN	echo "deb [arch=amd64,i386] http://mirrors.bestthaihost.com/mariadb/repo/10.1/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/mariadb.list && \
 	apt-key adv --recv-keys --keyserver keyserver.ubuntu.com F1656F24C74CD1D8 && \
 	apt-get update && apt-get -y install mariadb-server && \
-	systemctl enable mysql.service
+	systemctl enable mariadb.service
 
 # Clean file
 RUN	apt-get autoclean
