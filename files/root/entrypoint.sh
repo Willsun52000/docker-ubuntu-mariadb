@@ -16,10 +16,9 @@ fi
 chown mysql:mysql -R /var/lib/mysql
 chown mysql:mysql -R /var/log/mysql
 
-#service supervisor start
-service ssh start
-service rsyslog start
-service mysql start
-service cron start
+service ssh restart
+service rsyslog restart
+service mysql restart
+service cron restart
 
 tail -f /dev/null
