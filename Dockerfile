@@ -26,6 +26,6 @@ RUN	chmod 0664 /etc/mysql/conf.d/mariadb.cnf
 
 EXPOSE	22 3306
 
-VOLUME	["/var/lib/mysql". "/var/log/mysql"]
+VOLUME	["/var/lib/mysql", "/var/log/mysql"]
 
 ENTRYPOINT	["/root/entrypoint.sh"]
