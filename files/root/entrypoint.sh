@@ -11,6 +11,7 @@ if [ ! -d /var/lib/mysql/mysql ]; then
 	mysql -e "DROP DATABASE IF EXISTS test;"
 	mysql -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';"
 	mysql -e "FLUSH PRIVILEGES"
+	mysql -u root mysql < /etc/mysql/timezone_posix.sql
 fi
 
 chown mysql:mysql -R /var/lib/mysql
