@@ -24,7 +24,7 @@ RUN	chmod +x /root/entrypoint.sh
 # Config mariaDB and php-fpm
 RUN	chmod 0664 /etc/mysql/conf.d/mariadb.cnf
 
-EXPOSE	22 3306
+EXPOSE	22 3306 4444 4567 4568 4567/udp
 
 VOLUME	["/var/lib/mysql", "/var/log/mysql"]
 
