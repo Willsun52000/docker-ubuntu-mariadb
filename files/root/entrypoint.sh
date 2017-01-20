@@ -18,16 +18,16 @@ fi
 chown mysql:mysql -R /var/lib/mysql
 chown mysql:mysql -R /var/log/mysql
 
-#USER=$(grep user /etc/mysql/debian.cnf | head -n1 | awk '{print $3}')
-#PASSWD=$(grep password /etc/mysql/debian.cnf | head -n1 | awk '{print $3}')
+USER=$(grep user /etc/mysql/debian.cnf | head -n1 | awk '{print $3}')
+PASSWD=$(grep password /etc/mysql/debian.cnf | head -n1 | awk '{print $3}')
 
 service ssh restart
 service rsyslog restart
-#service mysql restart
+service mysql restart
 service cron restart
 
-#mysql -e "GRANT ALL PRIVILEGES ON *.* TO '${USER}'@'localhost' IDENTIFIED BY '${PASSWD}';"
+mysql -e "GRANT ALL PRIVILEGES ON *.* TO '${USER}'@'localhost' IDENTIFIED BY '${PASSWD}';"
 
-mysqld
+tail -f /dev/null
 
 exit $?
