@@ -1,7 +1,7 @@
 FROM zercle/docker-ubuntu
 MAINTAINER bouroo <bouroo@gmail.com>
 
-ENV	VERSION='10.1'
+ENV	VERSION='10.2'
 
 # Update OS
 RUN	apt update && apt -y full-upgrade
