@@ -7,10 +7,10 @@ ENV	VERSION='10.2'
 RUN	apt update && apt -y full-upgrade
 
 # Install mariaDB
-RUN	echo "deb [arch=amd64,i386] http://mirrors.digitalocean.com/mariadb/repo/${VERSION}/ubuntu/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/mariadb.list && \
-	apt-key adv --recv-keys --keyserver keyserver.ubuntu.com F1656F24C74CD1D8 && \
-	apt update && apt -y install mariadb-server && \
-	systemctl enable mariadb.service
+RUN	echo "deb [arch=amd64,i386] http://mirrors.digitalocean.com/mariadb/repo/${VERSION}/ubuntu/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/mariadb.list \
+	&& apt-key adv --recv-keys --keyserver keyserver.ubuntu.com F1656F24C74CD1D8 \
+	&& apt update && apt -y install mariadb-server \
+	&& systemctl enable mariadb.service
 
 # Clean file
 RUN	apt-get autoclean
